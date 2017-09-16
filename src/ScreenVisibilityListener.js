@@ -10,7 +10,7 @@ export default class ScreenVisibilityListener {
   }
 
   register() {
-    const {willAppear, didAppear, willDisappear, didDisappearб willReset, didReset} = this.listeners;
+    const {willAppear, didAppear, willDisappear, didDisappear, willReset, didReset} = this.listeners;
     this.willAppearSubscription = willAppear && this.emitter.addListener('willAppear', willAppear);
     this.didAppearSubscription = didAppear && this.emitter.addListener('didAppear', didAppear);
     this.willDisappearSubscription = willDisappear && this.emitter.addListener('willDisappear', willDisappear);
