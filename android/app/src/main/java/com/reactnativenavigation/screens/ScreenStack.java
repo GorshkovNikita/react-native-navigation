@@ -56,16 +56,19 @@ public class ScreenStack {
     public void newStack(final ScreenParams params, LayoutParams layoutParams) {
         final Screen nextScreen = ScreenFactory.create(activity, params, leftButtonOnClickListener);
         final Screen previousScreen = stack.peek();
+        NavigationApplication.instance.getEventEmitter().sendWillResetEvent(previousScreen.getScreenParams(), NavigationType.Reset);
         if (isStackVisible) {
             pushScreenToVisibleStack(layoutParams, nextScreen, previousScreen, new Screen.OnDisplayListener() {
                 @Override
                 public void onDisplay() {
                     removeElementsBelowTop();
+                    NavigationApplication.instance.getEventEmitter().sendDidResetEvent(previousScreen.getScreenParams(), NavigationType.Reset);
                 }
             });
         } else {
             pushScreenToInvisibleStack(layoutParams, nextScreen, previousScreen);
             removeElementsBelowTop();
+            NavigationApplication.instance.getEventEmitter().sendDidResetEvent(previousScreen.getScreenParams(), NavigationType.Reset);
         }
     }
 

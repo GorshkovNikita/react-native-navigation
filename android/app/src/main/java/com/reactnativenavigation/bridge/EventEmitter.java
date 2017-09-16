@@ -34,6 +34,16 @@ public class EventEmitter {
         sendGlobalScreenChangedEvent("didDisappear", params.timestamp, params.screenId, type);
     }
 
+    public void sendWillResetEvent(BaseScreenParams params, NavigationType type) {
+        sendScreenChangedEventToJsScreen("willReset", params.getNavigatorEventId());
+        sendGlobalScreenChangedEvent("willReset", params.timestamp, params.screenId, type);
+    }
+
+    public void sendDidResetEvent(BaseScreenParams params, NavigationType type) {
+        sendScreenChangedEventToJsScreen("didReset", params.getNavigatorEventId());
+        sendGlobalScreenChangedEvent("didReset", params.timestamp, params.screenId, type);
+    }
+
     private void sendScreenChangedEventToJsScreen(String eventId, String navigatorEventId) {
         WritableMap map = Arguments.createMap();
         map.putString("type", "ScreenChangedEvent");
