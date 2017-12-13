@@ -476,6 +476,7 @@ public class BottomTabsLayout extends BaseLayout implements AHBottomNavigation.O
         }
 
         final int unselectedTabIndex = currentStackIndex;
+        sendTabUnselectedEventToJs();
         hideCurrentStack();
         showNewStack(position, NavigationType.BottomTabSelected);
         EventBus.instance.post(new ScreenChangedEvent(getCurrentScreenStack().peek().getScreenParams()));
@@ -491,7 +492,12 @@ public class BottomTabsLayout extends BaseLayout implements AHBottomNavigation.O
         data = createTabSelectedEventData(selectedTabIndex, unselectedTabIndex);
         NavigationApplication.instance.getEventEmitter().sendNavigatorEvent("bottomTabSelected", data);
     }
-
+    
+    private void sendTabUnselectedEventToJs() {
+        String navigatorEventId = getCurrentScreenStack().peek().getNavigatorEventId();
+        NavigationApplication.instance.getEventEmitter().sendNavigatorEvent("bottomTabUnselected", navigatorEventId);
+    }
+    
     private WritableMap createTabSelectedEventData(int selectedTabIndex, int unselectedTabIndex) {
         WritableMap data = Arguments.createMap();
         data.putInt("selectedTabIndex", selectedTabIndex);
