@@ -1,4 +1,5 @@
-package com.fitside.mobile;
+package com.reactnativenavigation.react;
+
 import com.facebook.react.bridge.ReactApplicationContext;
 import com.facebook.react.uimanager.UIImplementation;
 import com.facebook.react.uimanager.UIImplementationProvider;
@@ -22,7 +23,7 @@ public class WixUIImplementationProvider extends UIImplementationProvider {
             UIManagerModule.ViewManagerResolver viewManagerResolver,
             EventDispatcher eventDispatcher,
             int minTimeLeftInFrameForNonBatchedOperationMs) {
-        return new CalendarUIImplementation(
+        return new WixUIImplementation(
                 reactContext,
                 viewManagerResolver,
                 eventDispatcher,
@@ -35,7 +36,7 @@ public class WixUIImplementationProvider extends UIImplementationProvider {
             List<ViewManager> viewManagerList,
             EventDispatcher eventDispatcher,
             int minTimeLeftInFrameForNonBatchedOperationMs) {
-        return new CalendarUIImplementation(
+        return new WixUIImplementation(
                 reactContext,
                 viewManagerList,
                 eventDispatcher,

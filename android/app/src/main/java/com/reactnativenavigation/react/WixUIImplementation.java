@@ -1,4 +1,4 @@
-package com.fitside.mobile;
+package com.reactnativenavigation.react;
 
 import com.facebook.react.bridge.ReactApplicationContext;
 import com.facebook.react.bridge.ReadableArray;
@@ -25,11 +25,11 @@ public class WixUIImplementation extends UIImplementation {
     protected Object uiImplementationLock = new Object();
     protected boolean threadSafety = true;
 
-    public CalendarUIImplementation(ReactApplicationContext reactContext, UIManagerModule.ViewManagerResolver viewManagerResolver, EventDispatcher eventDispatcher, int minTimeLeftInFrameForNonBatchedOperationMs) {
+    public WixUIImplementation(ReactApplicationContext reactContext, UIManagerModule.ViewManagerResolver viewManagerResolver, EventDispatcher eventDispatcher, int minTimeLeftInFrameForNonBatchedOperationMs) {
         super(reactContext, viewManagerResolver, eventDispatcher, minTimeLeftInFrameForNonBatchedOperationMs);
     }
 
-    public CalendarUIImplementation(ReactApplicationContext reactContext, List<ViewManager> viewManagers, EventDispatcher eventDispatcher, int minTimeLeftInFrameForNonBatchedOperationMs) {
+    public WixUIImplementation(ReactApplicationContext reactContext, List<ViewManager> viewManagers, EventDispatcher eventDispatcher, int minTimeLeftInFrameForNonBatchedOperationMs) {
         super(reactContext, viewManagers, eventDispatcher, minTimeLeftInFrameForNonBatchedOperationMs);
     }
 
