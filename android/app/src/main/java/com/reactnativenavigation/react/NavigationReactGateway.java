@@ -207,11 +207,6 @@ public class NavigationReactGateway implements ReactGateway {
 		}
 
 		@Override
-        protected UIImplementationProvider getUIImplementationProvider() {
-            return new WixUIImplementationProvider();
-        }
-
-		@Override
 		protected String getJSMainModuleName() {
 			String jsMainModuleName = NavigationApplication.instance.getJSMainModuleName();
 			if (jsMainModuleName != null)
